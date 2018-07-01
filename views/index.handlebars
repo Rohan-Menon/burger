@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-6" id="">
+                <h2>Order Up</h2>
+                <div class="list-group list-group-flush">
+                {{#each burgers}} {{#unless this.eaten}}
+                <div class="list-group-item">
+
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <span>{{this.burger_name}}</span>
+                        <button type="submit" class="btn burger-button m-1 float-right">Nom Nom!</button>
+                    </form>
+
+                </div>
+                {{/unless}} {{/each}}
+                </div>
+    </div>
+    <div class="col-6">
+                <h2>Check Please!</h2>
+                <div class="list group list-group-flush">
+                    {{#each burgers}} {{#if this.eaten}}
+
+                    <div class="m-2 list-group-item">
+                            <span>{{this.burger_name}}</span>
+                    </div>
+
+                    {{/if}} {{/each}}
+                </div>
+    </div>
+</div>
